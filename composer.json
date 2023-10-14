@@ -12,6 +12,7 @@
         "doctrine/orm": "^2.16",
         "friendsofsymfony/rest-bundle": "^3.6",
         "jms/serializer-bundle": "^5.3",
+        "knplabs/knp-paginator-bundle": "*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",

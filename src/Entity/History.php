@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: HistoryRepository::class)]
 class History
 {
+    use Timestamps;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -21,7 +23,7 @@ class History
     private ?int $secondIn = null;
 
     #[ORM\Column]
-    private ?int $firstOut = null;
+    private ?int $firstOut;
 
     #[ORM\Column]
     private ?int $secondOut = null;
@@ -31,6 +33,11 @@ class History
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $data_aktualizacji = null;
+
+    public function __construct()
+    {
+    $this->data_utworzenia = new \DateTime();
+    }
 
     public function getId(): ?int
     {
