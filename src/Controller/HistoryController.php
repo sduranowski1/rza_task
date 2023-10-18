@@ -12,7 +12,7 @@ use App\Entity\History;
 #[Route('/api', name: 'api_')]
 class HistoryController extends AbstractController
 {
-    #[Route('/history', name: 'history_index', methods:['get'] )]
+    #[Route('/exchange/values', name: 'history_index', methods:['get'] )]
     public function index(ManagerRegistry $doctrine): JsonResponse
     {
         $products = $doctrine
@@ -36,7 +36,7 @@ class HistoryController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/history', name: 'history_create', methods:['post'])]
+    #[Route('/exchange/values', name: 'history_create', methods:['post'])]
     public function create(ManagerRegistry $doctrine, Request $request): JsonResponse
     {
         $entityManager = $doctrine->getManager();
@@ -63,7 +63,7 @@ class HistoryController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/history/{id}', name: 'history_show', methods:['get'] )]
+    #[Route('/exchange/values/{id}', name: 'history_show', methods:['get'] )]
     public function show(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $history = $doctrine->getRepository(History::class)->find($id);
@@ -86,7 +86,7 @@ class HistoryController extends AbstractController
         return $this->json($data);
     }
 
-    #[Route('/history/{id}', name: 'history_update', methods:['put', 'patch'] )]
+    #[Route('/exchange/values/{id}', name: 'history_update', methods:['put', 'patch'] )]
     public function update(ManagerRegistry $doctrine, Request $request, int $id): JsonResponse
     {
         $entityManager = $doctrine->getManager();
@@ -116,7 +116,7 @@ class HistoryController extends AbstractController
         return $this->json($data);
     }
  
-    #[Route('/history/{id}', name: 'history_delete', methods:['delete'] )]
+    #[Route('/exchange/values/{id}', name: 'history_delete', methods:['delete'] )]
     public function delete(ManagerRegistry $doctrine, int $id): JsonResponse
     {
         $entityManager = $doctrine->getManager();
